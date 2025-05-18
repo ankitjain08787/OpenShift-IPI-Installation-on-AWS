@@ -9,40 +9,42 @@ Setting up Red Hat OpenShift on AWS using **Installer-Provisioned Infrastructure
 Before starting, ensure you have:
 - An **AWS account** with necessary permissions.
 - **AWS CLI** installed and configured.
+  <img width="953" alt="image" src="https://github.com/user-attachments/assets/509a5ae5-6b8e-4b63-8429-b83cd497d32a" />
+  <img width="742" alt="image" src="https://github.com/user-attachments/assets/dde303e6-3a8c-4e9c-9007-d8478a90a2cc" />
+
   ```
   sudo yum install awscli
   ```
 - **OpenShift CLI** (`oc`) and **OpenShift Installer** downloaded.
   ```
- [root@ip-172-31-3-124 ~]# wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-client-linux.tar.gz
---2025-05-18 15:53:54--  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-client-linux.tar.gz
-Resolving mirror.openshift.com (mirror.openshift.com)... 65.9.112.70, 65.9.112.103, 65.9.112.43, ...
-Connecting to mirror.openshift.com (mirror.openshift.com)|65.9.112.70|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 24316608 (23M) [application/x-tar]
-Saving to: ‘openshift-client-linux.tar.gz’
-
-openshift-client-linux.tar.gz                   100%[=====================================================================================================>]  23.19M  7.51MB/s    in 3.5s
-
-2025-05-18 15:53:59 (6.56 MB/s) - ‘openshift-client-linux.tar.gz’ saved [24316608/24316608]
+  [root@ip-172-31-3-124 ~]# wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-client-linux.tar.gz
+  --2025-05-18 15:53:54--  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-client-linux.tar.gz
+  Resolving mirror.openshift.com (mirror.openshift.com)... 65.9.112.70, 65.9.112.103, 65.9.112.43, ...
+  Connecting to mirror.openshift.com (mirror.openshift.com)|65.9.112.70|:443... connected.
+  HTTP request sent, awaiting response... 200 OK
+  Length: 24316608 (23M) [application/x-tar]
+  Saving to: ‘openshift-client-linux.tar.gz’
+  openshift-client-linux.tar.gz                   100%[=====================================================================================================>]  23.19M  7.51MB/s    in 3.5s
+  2025-05-18 15:53:59 (6.56 MB/s) - ‘openshift-client-linux.tar.gz’ saved [24316608/24316608]
   ```
   ```
-[root@ip-172-31-3-124 ~]# wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-install-linux.tar.gz
---2025-05-18 15:54:13--  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-install-linux.tar.gz
-Resolving mirror.openshift.com (mirror.openshift.com)... 65.9.112.114, 65.9.112.43, 65.9.112.103, ...
-Connecting to mirror.openshift.com (mirror.openshift.com)|65.9.112.114|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 86927978 (83M) [application/x-tar]
-Saving to: ‘openshift-install-linux.tar.gz’
-
-openshift-install-linux.tar.gz                    0%[                                                                                                      ] 123.54K   284KB/s
-openshift-install-linux.tar.gz                    0%[                                                                                                      ] 364.50K   565KB/s
-openshift-install-linux.tar.gz                  100%[=====================================================================================================>]  82.90M  8.95MB/s    in 10s
-
-2025-05-18 15:54:24 (8.25 MB/s) - ‘openshift-install-linux.tar.gz’ saved [86927978/86927978]
+  [root@ip-172-31-3-124 ~]# wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-install-linux.tar.gz
+  --2025-05-18 15:54:13--  https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.6.0/openshift-install-linux.tar.gz
+  Resolving mirror.openshift.com (mirror.openshift.com)... 65.9.112.114, 65.9.112.43, 65.9.112.103, ...
+  Connecting to mirror.openshift.com (mirror.openshift.com)|65.9.112.114|:443... connected.HTTP request sent, awaiting response... 200 OK
+  Length: 86927978 (83M) [application/x-tar]
+  Saving to: ‘openshift-install-linux.tar.gz’
+  openshift-install-linux.tar.gz                    0%[                                                                                                      ] 123.54K   284KB/s
+  openshift-install-linux.tar.gz                    0%[                                                                                                      ] 364.50K   565KB/s
+  openshift-install-linux.tar.gz                  100%[=====================================================================================================>]  82.90M  8.95MB/s    in 10s
+  2025-05-18 15:54:24 (8.25 MB/s) - ‘openshift-install-linux.tar.gz’ saved [86927978/86927978]
   ```
-- A **pull secret** from Red Hat.
+- A **pull secret** from [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift/downloads).
+  ![image](https://github.com/user-attachments/assets/8aa85ff2-b8ca-423e-9b5c-64352326f772)
+
 - A **domain configured in AWS Route 53** (for DNS resolution).
+  <img width="371" alt="image" src="https://github.com/user-attachments/assets/6d8bec73-a33f-4e2e-9f88-4d77f3292b2c" />
+
 
 ### **Step-by-Step Installation**
 #### **1. Download and Install CLI Tools**
