@@ -43,7 +43,7 @@ Before starting, ensure you have:
   ![image](https://github.com/user-attachments/assets/8aa85ff2-b8ca-423e-9b5c-64352326f772)
 
 - A **domain configured in AWS Route 53** (for DNS resolution).
-  <img width="371" alt="image" src="https://github.com/user-attachments/assets/6d8bec73-a33f-4e2e-9f88-4d77f3292b2c" />
+- <img width="371" alt="image" src="https://github.com/user-attachments/assets/6d8bec73-a33f-4e2e-9f88-4d77f3292b2c" />
 
 
 ### **Step-by-Step Installation**
