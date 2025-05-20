@@ -47,41 +47,28 @@ Before starting, ensure you have:
 
 
 ### **Step-by-Step Installation**
-#### **1. Download and Install CLI Tools**
-- Go to [Red Hat OpenShift Install](https://keithtenzer.com/openshift/openshift-4-aws-ipi-installation-getting-started-guide/) and download the OpenShift installer and CLI tools.
-- Extract and install:
-  ```bash
-  sudo tar xvf openshift-client-linux.tar.gz -C /usr/bin
-  sudo tar xvf openshift-install-linux.tar.gz -C /usr/bin
-  ```
-- Verify installation:
-  ```bash
-  openshift-install version
-  ```
 
-#### **2. Configure AWS Credentials**
+
+#### **1. Configure AWS Credentials on Putty**
 - Ensure AWS CLI is installed and configured:
   ```bash
   aws configure
   ```
-- Verify permissions:
-  ```bash
-  rosa verify permissions
-  rosa verify quota
-  ```
 
-#### **3. Create Install Configuration**
+#### **2. Create Install Configuration**
 - Generate an install config file:
   ```bash
   openshift-install create install-config
   ```
 - Provide:
+  ```
   - **Platform:** AWS
   - **Cluster name**
   - **Region**
   - **Pull secret**
   - **Base domain** (configured in Route 53)
-
+  ```
+  
 #### **4. Deploy OpenShift Cluster**
 - Run the installation:
   ```bash
